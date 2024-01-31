@@ -7,14 +7,16 @@ public class KidsWithTheGreatestNumberOfCandies {
     }
 
     public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
-        List<Boolean> result = new ArrayList<>();
-        int maxCandies = 0;
-        for (int i = 0; i < candies.length; i++) {
-            maxCandies = Math.max(maxCandies, candies[i]);
+        List<Boolean> ans = new ArrayList<>();
+        int maximum = 0;
+        for (int noOfCandy : candies) {
+            if (noOfCandy > maximum) {
+                maximum = noOfCandy;
+            }
         }
-        for (int i = 0; i < candies.length; i++) {
-            result.add(candies[i] + extraCandies >= maxCandies);
+        for (int noOfCandy : candies) {
+            ans.add(noOfCandy + extraCandies >= maximum);
         }
-        return result;
+        return ans;
     }
 }
